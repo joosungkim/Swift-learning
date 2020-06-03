@@ -1,2 +1,92 @@
-# June 3rd
-## Day 1
+# **Joo Sung Kim**
+# *June 3rd 2020*
+
+## **Grammar**
+### `let` vs `var`
+`let` compares to that of static in Java, with variable unchangable
+<br/>
+Whereas `var` is just a declaration of variable
+
+### Output
+formatted in `func functionName (_parameterName: parameterType) -> outputType`
+<br/>
+`_` is casted in parameter field to indicate that variable name need not be repeated when called.
+
+### Variable Casting
+because of `nil` , three casting types
+1. `?`: used in network calls, if unstable or unnecessary, to avoid `NullPointerException` <br/>
+almost impossible to catch empty info, Unwrap nullable variable
+2. `??`: default value into the nullable
+3. `!`: non-nullable variable, easier to catch bugs <br/>
+
+e.g)
+
+### Return Options
+tuples can be returned as such: <br/>
+`func returnTuple() -> (String, Int)`
+
+### Unwrapping Handling
+
+1. `if nil`
+```
+func handleNilValue(_ value: String?) -> String? {
+    if value != nil { // nil works with ==
+        return value
+    } else {
+        return nil
+    }
+}
+```
+2. new variable assigned for `nullable`
+```
+func handleNilValue2 (_ value: String?) -> String? {
+    if let nonOptionalValue = value {
+    // if value isnt nil, scope only exists within if
+        return nonOptionalValue
+    } else {
+        return nil
+    }
+}
+```
+3. `guard` used to make `non-nullable`
+```
+func handleNilValue3 (_ value: String?) -> String {
+    guard let nonOptionalValue = value else { //else always necessary for guard
+        //scope greater than just else scope goes through entire function
+        return "Wrong input!"
+    }
+    return nonOptionalValue
+}
+```
+
+most preferred in modern day coding to use guard against any `if` / `nullable` statements
+
+### CallBacks
+Write your completion block:
+```
+func requestForUserDataWith(_ parameters: [String: String],
+ completionHandler: (_ result: [String: Any], _ error: Error) -> Void){
+     //.. Code process
+}
+```
+This is how it will return our data in this function after executing operations in the main task:
+```
+func requestForUserDataWith(_ parameters: [String: String],
+completionHandler: (_ result: [String: Any], _ error: Error) -> Void){
+     //.. Code process
+     completionHandler(result, error) // return data & close
+}
+```
+Your code will look like this when you will call the function:
+```
+requestForUserDataWith(parameters) { result, error in
+     //.. Code process
+}
+```
+
+entire section exceerpted from:
+<br/>`https://medium.com/better-programming/completion-handler-in-swift-4-2-671f12d33178`
+<br/>
+
+## **Conclusion**
+It was my first day of making a personal dev study journal. I will continue to record my own learning and progress in becoming a better IOS developer.
