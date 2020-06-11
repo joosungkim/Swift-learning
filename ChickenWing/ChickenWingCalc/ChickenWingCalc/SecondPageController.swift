@@ -17,7 +17,7 @@ class SecondPageController: UIViewController {
     
     let backButton = UIButton(type: .system)
     var numWings: Int = 0 //? or "=0" or !
-    weak var delegate: SecondPageControllerDelegate?
+    weak var 	delegate: SecondPageControllerDelegate?
     //weak varaible allows for memory retain cycle to be released when unused
     // only works for class
     
