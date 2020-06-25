@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class IntroPageCell: UICollectionViewCell {
-    
     let introImageView: UIImageView = {
         let iv = UIImageView(image: UIImage.init(named: "IntroPage1"))
         iv.translatesAutoresizingMaskIntoConstraints =  false
